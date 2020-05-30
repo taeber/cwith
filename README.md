@@ -175,7 +175,7 @@ int show_window(void)
   with (
       (FILE *reader, *writer),
       (reader = fopen("input", "r"); writer = fopen("output", "w")),
-      (fclose(reader); fclose(fp)),
+      (fclose(reader); fclose(write)),
       { ... }
   )
   ```
