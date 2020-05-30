@@ -22,30 +22,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/* See https://github.com/taeber/cwith */
+/* See https://github.com/taeber/c-with */
 
-#define with(init, enter, exit, block) \
-    {                    \
-        init;            \
-        if (( enter )) { \
-            do {         \
-                block;   \
-            } while(0);  \
-            exit;        \
-        }                \
+#define with(declare, startup, cleanup, block) \
+    {                      \
+        declare;           \
+        if (( startup )) { \
+            do {           \
+                block;     \
+            } while(0);    \
+            cleanup;       \
+        }                  \
     }
 
-#define withif(init, enter, exit, block, otherwise) \
-    {                    \
-        init;            \
-        if (( enter )) { \
-            do {         \
-                block;   \
-            } while(0);  \
-            exit;        \
-        } else {         \
-            otherwise;   \
-        }                \
+#define withif(declare, startup, cleanup, block, otherwise) \
+    {                      \
+        declare;           \
+        if (( startup )) { \
+            do {           \
+                block;     \
+            } while(0);    \
+            cleanup;       \
+        } else {           \
+            otherwise;     \
+        }                  \
     }
 
 #endif
