@@ -100,7 +100,7 @@ They call code before and after another block of code.
 
 You need only `#include "with.h"` in your code.
 
-### Macro `with(init, enter, exit, block)`
+### Macro `with(declare, startup, cleanup, block)`
 
 ```c
 #include "with.h"
@@ -128,7 +128,7 @@ void Head(const char *path)
 }
 ```
 
-### Macro `withif(init, enter, exit, block, otherwise)`
+### Macro `withif(declare, startup, cleanup, block, otherwise)`
 
 Use `withif` if you need the `else`.
 Here's the `show_window` example from before:
