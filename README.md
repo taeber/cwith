@@ -1,5 +1,5 @@
-Automatic variable cleanup using `with` statements in C
-=======================================================
+Automatic cleanup using `with` statements in C
+==============================================
 
 It's interesting that more C programmers don't use the `with` statement for
 automatic resource cleanup.
