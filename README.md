@@ -83,7 +83,7 @@ and easier to understand what is actually happening as it doesn't hide the
 control flow.
 
 The optional `else`-clause used when startup fails, looks as appropriate at the
-end of the `with` as it does after an `if`, so it wouldn't require it's own
+end of the `with` as it does after an `if`, so it wouldn't require its own
 unique keyword.
 
 Finally, some compilers already look for extensions like the `cleanup`
