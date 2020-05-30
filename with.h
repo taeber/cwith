@@ -43,9 +43,7 @@ SOFTWARE.
                 block;     \
             } while(0);    \
             cleanup;       \
-        } else {           \
-            otherwise;     \
-        }                  \
+        } otherwise;       \
     }
 
 #endif

@@ -141,11 +141,15 @@ int show_window(void)
         withif (SDL_Window *w, w = SDL_CreateWindow("With!", 0, 0, 320, 240, NULL), SDL_DestroyWindow(w),
         {
             SDL_Delay(3000);
-        }, {
+        },
+        else
+        {
             SDL_Log("Failed to create window: %s", SDL_GetError());
             result = 4;
         })
-    }, {
+    },
+    else
+    {
         SDL_Log("Failed to reticulate splines: %s", SDL_GetError());
         result = 3;
     })
