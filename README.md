@@ -103,7 +103,7 @@ C standard, but until then feel free to use [`with.h`](with.h).
 close to the syntax I introduced.
 They call code before and after another block of code.
 
-You need only `#include "with.h"` in your code.
+You need only download and `#include "with.h"` in your code.
 
 ### Macro `with(declare, startup, cleanup, block)`
 
