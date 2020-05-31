@@ -1,4 +1,4 @@
-Automatic cleanup using `with` statements in C
+Automatic cleanup in C using `with`-statements
 ==============================================
 
 Why don't C programmers use the `with` statement for automatic resource cleanup?
