@@ -21,7 +21,8 @@ void write_samples(const char *path, int numSamples, const float *samples)
 }
 ```
 
-Know that if the startup condition fails, the cleanup code isn't called.
+Know that if the startup condition fails, the cleanup code isn't called,
+but otherwise it is guaranteed to run upon exiting the `with` block.
 
 So, if `fopen` failed to open `path` for writing, `fp` would be `NULL` and
 `fclose(fp)` would not get executed.
