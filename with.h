@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/* See https://github.com/taeber/c-with */
+/* See https://github.com/taeber/cwith */
 
 #define with(declare, startup, cleanup, block) \
     {                      \
