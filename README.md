@@ -163,7 +163,7 @@ int show_window(void)
 }
 ```
 
-### Caveat
+### Caveats
 
 * Do not use `return`. Sorry, but the macros are not as powerful as the builtin
 `with`-statement would be.
