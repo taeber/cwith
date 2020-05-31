@@ -108,6 +108,7 @@ You need only download and `#include "with.h"` in your code.
 ### Macro `with(declare, startup, cleanup, block)`
 
 ```c
+#include <stdio.h>
 #include "with.h"
 
 // Head prints the first 128 characters of the file at `path`.
@@ -119,7 +120,7 @@ void Head(const char *path)
     with (FILE *fp, fp = fopen(path, "rb"), fclose(fp), {
         fread(buf, 1, sizeof(buf)-1, fp);
         if (ferror(fp)) {
-            perror(path)
+            perror(path);
             break;
         }
         printf("%s\n", buf);
