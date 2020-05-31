@@ -177,10 +177,10 @@ int show_window(void)
     })
     ```
 
-* If you *have* to declare multiple variables, you'll need to wrap them in
-  parenthesis.
+* If you *have* to declare multiple variables, you might need to wrap them 
+  in parenthesis.
   Since these are macro functions, we have to use commas to separate the
-  parameters.
+  parameters instead of the semi-colon used in the `with`-statement
   ```
   with (
       (FILE *reader, *writer),
