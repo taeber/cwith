@@ -1,8 +1,7 @@
 Automatic cleanup using `with` statements in C
 ==============================================
 
-It's interesting that more C programmers don't use the `with` statement for
-automatic resource cleanup.
+Why don't C programmers use the `with` statement for automatic resource cleanup?
 
 The `with` statement looks like a `for` loop, but instead of initialization,
 condition, and step parts, `with` has declaration, startup, and cleanup.
@@ -27,8 +26,8 @@ Know that if the startup condition fails, the cleanup code isn't called.
 So, if `fopen` failed to open `path` for writing, `fp` would be `NULL` and
 `fclose(fp)` would not get executed.
 
-If you want to actually handle this situation, you could use the optional
-`else` clause, which is described next.
+If you want to actually handle this situation, you would use the optional
+`else` clause, like so:
 
 ```c
 int show_window(void)
@@ -54,28 +53,29 @@ int show_window(void)
 }
 ```
 
-Observe that `with`s can nest.
+Observe that you can nest `with` statements.
 
-Also, any variables declared are still within scope in the `else` clause, but
-usually they'll be `NULL`, so they have little practical use.
+Also, any variables declared are scoped to the statement including the
+`else` clause. (Although typically variables will be `NULL` in the `else`,
+so they have little practical use.)
 
-Amazingly, you can `return` from them and any cleanup code will still run.
+Amazingly, you can `return` from within `with` blocks and any cleanup code
+will still run.
 
-In conclusion, like all constructs in C, `with` is not always the right
-tool to use, but for simple resource cleanup, it should be considered.
+Like all constructs in C, `with` is not always the right tool to use, but for
+simple resource cleanup, it should be considered.
 
 ## Truth
 
 OK, so if you're wondering why you've been programming in C since 1972 and
 have _NEVER_ once heard of the `with` statement, you're not crazy.
 
-**The `with`-statement doesn't exist**.
+_**The `with`-statement doesn't exist.**_
 
 Typically, the type of resource cleanup I just described is done in C with
 pairs of startup and cleanup macros, additional helper functions,
-[compiler extensions](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization#Clang_and_GCC_%22cleanup%22_extension_for_C),
-or `goto`s (if you don't mind arguing with every new developer that joins
-your project about their appropriate uses).
+compiler extensions, or `goto` statements (if you don't mind arguing with
+every new developer that joins your project about their appropriate uses).
 
 The `with`-statement seems appropriately C though.
 Unlike destructors in object-oriented languages, the cleanup code is explicit
@@ -86,8 +86,12 @@ The optional `else`-clause used when startup fails, looks as appropriate at the
 end of the `with` as it does after an `if`, so it wouldn't require its own
 unique keyword.
 
-Finally, some compilers already look for extensions like the `cleanup`
-attribute, so `with` doesn't seem that much more complex to implement.
+Finally, some compilers already have similar contstructs implemented as
+extensions such as the
+[cleanup attribute](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization#Clang_and_GCC_%22cleanup%22_extension_for_C)
+and
+[__try-__finally](https://docs.microsoft.com/en-us/cpp/cpp/try-finally-statement?view=vs-2019)).
+So `with` doesn't seem that much more complex to implement.
 
 I hope someone will read this and we'll see the addition of `with` in the next
 C standard, but until then feel free to use [`with.h`](with.h).
