@@ -47,3 +47,5 @@ SOFTWARE.
     }
 
 #endif
+
+/* vim: set filetype=c: */
